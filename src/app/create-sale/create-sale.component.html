@@ -1,0 +1,97 @@
+
+
+<!-- <div><h2 style="color: rgb(4, 3, 27);text-align:left">Create a Sale</h2></div> -->
+<div style="color: rgb(1, 1, 10);text-align:center; border: 5px;">
+<table>
+    <tr align="center">
+        <td colspan="3"><h2 style="color: rgb(4, 3, 27);text-align:left">Create a Sale</h2></td>
+    </tr>
+    <tr align="left">
+        <td> <label >Select Product : 
+        </label></td>
+        <td [width]="20"></td>
+        <td><select (change)="onProductSelection($event)" #product="ngModel" [(ngModel)]=sale.productId name="product">
+            <option   *ngFor="let product of productList" [value]="product.productId">{{product.productName}}</option></select></td>
+    </tr>
+<tr align="left" *ngIf="showProdRelatedData"  colspan="3">
+    
+            <td><label> Sales Price :</label></td>
+            <td [width]="20"></td>
+        <td><label>{{productSalesPrice}}</label></td>
+
+        </tr>
+        
+        
+        
+   
+    <tr align="left" *ngIf="showProdRelatedData" ><td><label> Discount:</label></td>
+        <td [width]="20"></td>
+        <td><label>{{productDiscount}}% </label></td>
+</tr>
+    <tr align="left" *ngIf="showProdRelatedData" ><td><label> After Discount Price :</label></td>
+        <td [width]="20"></td>
+        <td><label>{{productAfterDiscounePrice}}</label></td></tr>
+    
+
+    <tr align="left">
+        <td>
+            <label> Select SalesPerson :
+            </label>
+        </td>
+        <td [width]="20"></td>
+        <td>
+            <select (change)="onSalesPersonSelection($event)" #sp="ngModel" [(ngModel)]=sale.salesPersonId name="sp">
+                <option *ngFor="let sp of salesPersonList" [value]="sp.salesPersonId">{{sp.firstName}}</option></select>&nbsp;
+        </td>
+        
+    </tr>
+    <tr align="left" *ngIf="showSalesPersonRelatedData">
+        <td>
+            <label>Sales Commision</label>
+        </td>
+        <td [width]="20"></td>
+        <td>
+            
+            <label>{{salesCommissionValue}}%</label>
+        </td>
+    </tr>
+    <tr align="left">
+        <td>
+            <label>Sales Date</label>
+        </td>
+        <td [width]="20"></td>
+        <td>
+            <input type="date" [min]="today" [(ngModel)]="sale.salesDate">
+        </td>
+    </tr>
+    <tr align="left">
+        <td>
+            <label> Select Customer :
+  
+            </label>
+        </td>
+        <td [width]="20"></td>
+        <td>
+            <select #customer [(ngModel)]="sale.customerId" name="sp">
+                <option *ngFor="let cust of customerList" [value]="cust.customerId">{{cust.firstName}}</option></select>
+        </td>
+    </tr>
+    <tr align="center" >
+        <td colspan="3">
+           
+                <button class="button"  (click)="createSale()">Submit</button>
+        </td>
+        <td [width]="20"></td>
+        <td>
+
+        </td>
+    </tr>
+    
+    </table>
+
+
+
+
+
+
+  

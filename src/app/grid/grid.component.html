@@ -1,0 +1,163 @@
+ 
+ <div class="button"><button  type="button" [routerLink]="['/createSale']" class="btn btn-primary">Create Sale</button></div>
+ <div *ngIf="mode=='salesMode'">
+    <h3>Sales Data</h3>
+    <table id="grid">
+    <tr>
+        <th>Product</th>
+        <th>Customer</th>
+        <th>Sale Date</th>
+        <th>Price</th>
+        <th>Sales Person</th>
+        <th>SalesPerson Commission</th>
+        
+    </tr>
+    <tr *ngFor="let sales of saleList">
+        <td>{{sales.product.productName}}</td>
+        <td>{{sales.customer.firstName}}''{{sales.customer.lastName}}</td>
+        <td>{{sales.salesDate|date}}</td>
+        <td>{{sales.price}}</td>
+        <td>{{sales.salesPerson.firstName}}''{{sales.salesPerson.lastName}}</td>
+        <td>{{sales.commission}}%</td>
+    </tr>
+</table>
+</div> 
+
+
+<div *ngIf="mode=='prodMode'">
+    <h3>Products Data</h3>
+    <table id="grid">
+    <tr>
+        <th>Product</th>
+        <th>Manufacturer</th>
+        <th>Style</th>
+        <th>Purchase Price</th>
+        <th>Sales Price</th>
+        <th>Product Quantity Available</th>
+        <th>SalesPerson Commission</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let prod of productList">
+        
+        <td>{{prod.productName}}</td>
+        <td>{{prod.manufacturer}}</td>
+        <td>{{prod.style}}</td>
+        <td>{{prod.purchasePrice}}</td>
+        <td>{{prod.salePrice}}</td>
+        <td>{{prod.qtyOnHand}}</td>
+        <td>{{prod.commissionPercentage}}%</td>
+        <td><a  [routerLink]="['/editProduct',prod.productId]">Click To Edit</a></td>
+    </tr>
+</table>
+</div> 
+
+
+<div *ngIf="mode=='custMode'">
+    <h3>Customer Data</h3>
+    <table id="grid">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        
+    </tr>
+    <tr *ngFor="let cust of customerList">
+       
+        <td>{{cust.firstName}}</td>
+        <td>{{cust.lastName}}</td>
+        <td>{{cust.address}}</td>
+        <td>{{cust.phoneNumber}}</td>
+    </tr>
+</table>
+</div> 
+
+
+
+<div *ngIf="mode=='spMode'">
+    <h3>Sales Person  Data</h3>
+    <table id="grid">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Manager Name</th>
+        <th>Edit</th>
+        
+    </tr>
+    <tr *ngFor="let sp of salesPersonList">
+        
+        <td>{{sp.firstName}}</td>
+        <td>{{sp.lastName}}</td>
+        <td>{{sp.address}}</td>
+        <td>{{sp.phone}}</td>
+        <td>{{sp.managerName}}</td>
+        <td><a  [routerLink]="['/editSalesPersons',sp.salesPersonId]">Click To Edit</a></td>
+        
+</table>
+</div> 
+
+<div *ngIf="mode=='reportMode'">
+    <h3>Sales Person  Report</h3>
+<table>
+    <tr>
+        <td>
+            <label> Select SalesPerson :
+            </label>
+        </td>
+        <td>
+            <select (change)="onSalesPersonSelection($event)" #sp="ngModel" [(ngModel)]=selectedSalesPersonId name="sp">
+                <option *ngFor="let sp of salesPersonList" [value]="sp.salesPersonId">{{sp.firstName}}</option></select>
+        </td>
+        <td>
+            <label>Select a Year</label>
+        </td>
+        <td>
+            <select [(ngModel)]=selectedYear #year="ngModel" name="Year">
+                <option *ngFor="let year of yearList">{{year}}
+                </option>
+            </select>
+        </td>
+        <td>
+            <label>Select the quarter</label>
+        </td>
+        <td>
+            <select #quarter="ngModel" name="quarter" [(ngModel)]=selectedQuarter>
+                <option value=1 >Quarter 1</option>
+                <option value=2 >Quarter 2</option>
+                <option value=3 >Quarter 3</option>
+                <option value=4 >Quarter 4</option>
+            </select>
+        </td>
+        <td>
+            <button (click)="getSalesPersonReport()">Fetch Report</button>
+        </td>
+    </tr>
+</table>
+
+
+    <div height=20></div>
+    <table id="grid">
+
+        
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Sales Date</th>
+        <th>Commision</th>
+       
+        
+    </tr> 
+    <tr *ngFor="let report of salesPersonReport">
+        
+        <td>{{report.firstName}}</td>
+        <td>{{report.lastName}}</td>
+        <td>{{report.salesDate}}</td>
+        <td>{{report.salesCommision}}</td>
+        
+        
+</table>
+</div> 
+
+

@@ -1,0 +1,64 @@
+<table>
+  <tr align="center">
+    <td colspan="3"><h2 style="color: rgb(4, 3, 27);text-align:left">Edit Salesperson</h2></td>
+</tr>
+<tr align="left">
+    <td> <label >First Name :</label></td>
+    <td [width]="20"></td>
+    <td><input id="fname" name="fname" [(ngModel)]="salesPersonTobeSaved.firstName"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label >Last Name :</label></td>
+  <td [width]="20"></td>
+  <td><input id="lname" name="lname" [(ngModel)]="salesPersonTobeSaved.lastName"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Address:</label></td>
+  <td [width]="20"></td>
+  <td><input id="address" name="address" [(ngModel)]="salesPersonTobeSaved.address"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label>Phone:</label></td>
+  <td [width]="20"></td>
+  <td><input id="phone" name="phone" [(ngModel)]="salesPersonTobeSaved.phone"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Manager Name:</label></td>
+  <td [width]="20"></td>
+  <td><input id="mname" name="mname" [(ngModel)]="salesPersonTobeSaved.managerName"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Start Date:</label></td>
+  <td [width]="20"></td>
+  <td><input id="sdate" name="sdate" type="date" [min]="today" [ngModel]="salesPersonTobeSaved.startDate|date"></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Termination Date:</label></td>
+  <td [width]="20"></td>
+  <td><input type="date" [min]="today" [(ngModel)]="salesPersonTobeSaved.terminationDate"></td>
+</tr>
+
+
+
+<tr align="center">
+  <td colspan="3"><button  (click)="saveSalesPerson()">
+    Submit
+  </button> </td>
+  
+</tr>
+</table>
+
+
+
+
+
+
+
+
+

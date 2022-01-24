@@ -1,0 +1,53 @@
+
+
+
+<table>
+  <tr align="center">
+    <td colspan="3"><h2 style="color: rgb(4, 3, 27);text-align:left">Edit the Product</h2></td>
+</tr>
+<tr align="left">
+    <td> <label >Product Name :</label></td>
+    <td [width]="20"></td>
+    <td><input id="pname" name="pname" [(ngModel)]="productTobeSaved.productName"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label >Manufacturer Name :</label></td>
+  <td [width]="20"></td>
+  <td><input id="mname" name="mname" [(ngModel)]="productTobeSaved.manufacturer"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Purchase Price:</label></td>
+  <td [width]="20"></td>
+  <td><input id="pprice" name="pprice" [(ngModel)]="productTobeSaved.purchasePrice"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Sales Price:</label></td>
+  <td [width]="20"></td>
+  <td><input id="sprice" name="sprice" [(ngModel)]="productTobeSaved.salePrice"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Quantity On Hand:</label></td>
+  <td [width]="20"></td>
+  <td><input id="qty" name="qty" [(ngModel)]="productTobeSaved.qtyOnHand"  type="text"  /></td>
+</tr>
+
+<tr align="left">
+  <td> <label> Commission:</label></td>
+  <td [width]="20"></td>
+  <td><input id="com" name="com" [(ngModel)]="productTobeSaved.commissionPercentage"  type="text"  /></td>
+</tr>
+
+<tr align="center">
+  <td colspan="3"><button  (click)="saveProduct()">
+    Submit
+  </button> </td>
+  
+</tr>
+</table>
+
+
+
